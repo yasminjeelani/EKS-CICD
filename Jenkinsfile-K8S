@@ -4,7 +4,7 @@ maven 'Maven3'
 }
 agent any
 environment {
-registry = "account_id.dkr.ecr.us-east-2.amazonaws.com/my-docker-repo"
+registry = "261991889257.dkr.ecr.us-east-1.amazonaws.com/demo"
 }
 stages {
 stage('Cloning Git') {
@@ -32,10 +32,8 @@ dockerImage = docker.build registry
 stage('Pushing to ECR') {
 steps{
 script {
-sh 'aws ecr get-login-password --region us-east-2 | docker login --username AWS
---password-stdin account_id.dkr.ecr.us-east-2.amazonaws.com'
-sh 'docker push
-account_id.dkr.ecr.us-east-2.amazonaws.com/my-docker-repo:latest'
+sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 261991889257.dkr.ecr.us-east-1.amazonaws.com'
+sh 'docker push 261991889257.dkr.ecr.us-east-1.amazonaws.com/demo:latest'
 }
 }
 }
