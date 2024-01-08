@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: my-springboot-app
-        image: nginx:latest
+        image: 255796196034.dkr.ecr.ap-south-1.amazonaws.com/demo
         imagePullPolicy: Always
         ports:
         - containerPort: 80
