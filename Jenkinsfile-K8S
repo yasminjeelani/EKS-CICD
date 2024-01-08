@@ -6,7 +6,7 @@ stage('K8S Deploy') {
     steps {
         script {
             withKubeConfig([credentialsId: 'K8S', serverUrl: 'https://8A6E94BF06958A42CAE9973AF3707943.yl4.ap-south-1.eks.amazonaws.com']) {
-                sh 'kubectl apply -f eks-deploy-k8s.yaml'
+                sh 'kubectl get all'
             }
         }
     }
