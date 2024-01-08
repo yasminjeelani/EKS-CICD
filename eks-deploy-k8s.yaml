@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: my-springboot-app
-        image: 211223789150.dkr.ecr.us-east-1.amazonaws.com/my-springboot-app:latest
+        image: nginx:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8085
+        - containerPort: 80
           name: http
           protocol: TCP
 # service type loadbalancer       
@@ -36,7 +36,7 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 8085
+    targetPort: 80
   type: LoadBalancer
   selector:
     app: springboot-app
