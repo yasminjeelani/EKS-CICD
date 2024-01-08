@@ -38,13 +38,14 @@ sh 'docker push 255796196034.dkr.ecr.ap-south-1.amazonaws.com/demo:latest'
 }
 }
 stage('K8S Deploy') {
-steps{
-script {
-withKubeConfig([credentialsId: 'K8S', serverUrl: 'https://8A6E94BF06958A42CAE9973AF3707943.yl4.ap-south-1.eks.amazonaws.com']) {
-sh ('kubectl apply -f eks-deploy-k8s.yaml')
+    steps {
+        script {
+            withKubeConfig([credentialsId: 'K8S', serverUrl: 'https://8A6E94BF06958A42CAE9973AF3707943.yl4.ap-south-1.eks.amazonaws.com']) {
+                sh 'kubectl apply -f eks-deploy-k8s.yaml'
+            }
+        }
+    }
 }
-}
-}
-}
+
 }
 }
